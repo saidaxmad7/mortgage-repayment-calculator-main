@@ -1,0 +1,157 @@
+@import "tailwindcss";
+
+:root {
+    --color-lime: hsl(61, 70%, 52%);
+    --color-red: hsl(4, 69%, 50%);
+
+    --color-white: hsl(0, 0%, 100%);
+    --color-slate-100: hsl(202, 86%, 94%);
+    --color-slate-300: hsl(203, 41%, 72%);
+    --color-slate-500: hsl(200, 26%, 54%);
+    --color-slate-700: hsl(200, 24%, 40%);
+    --color-slate-900: hsl(202, 55%, 16%);
+
+    font-family: var(--font-plus-jakarta);
+}
+
+html,
+body {
+    height: 100%;
+    font-family: var(--font-plus-jakarta);
+}
+
+body {
+    min-height: 100vh;
+    background-color: var(--color-slate-100);
+}
+
+.results-card {
+    border-bottom-left-radius: 60px;
+}
+
+button {
+    cursor: pointer;
+}
+
+.input-button {
+    font-size: 14px;
+}
+
+.mortgage-input {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--color-slate-300);
+    border-radius: 6px;
+    overflow: hidden;
+    transition: border-color 0.2s;
+}
+
+.mortgage-input:focus-within {
+    border-color: var(--color-lime);
+}
+
+.prefix {
+    background-color: var(--color-slate-100);
+    color: var(--color-slate-700);
+    padding: 10px 14px;
+    font-weight: 700;
+    border-right: 1px solid var(--color-slate-300);
+    transition: background-color 0.2s;
+}
+
+.mortgage-input:focus-within .prefix {
+    background-color: var(--color-lime);
+    color: var(--color-slate-900);
+}
+
+.mortgage-field {
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+    padding: 10px 12px;
+    font-weight: 600;
+}
+
+.mortgage-field:focus {
+    border: none;
+    outline: none;
+}
+.mortgage-type {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid var(--color-slate-300);
+    border-radius: 6px;
+    padding: 14px;
+    cursor: pointer;
+    transition: border-color 0.2s, background-color 0.2s;
+}
+
+.mortgage-type input {
+    display: none;
+}
+
+.radio-custom {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 2px solid var(--color-slate-500);
+    position: relative;
+}
+
+.mortgage-type input:checked + .radio-custom {
+    border-color: var(--color-lime);
+}
+
+.mortgage-type input:checked + .radio-custom::after {
+    content: "";
+    position: absolute;
+    top: 2.5px;
+    left: 2.5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--color-lime);
+}
+
+.mortgage-type:has(input:checked) {
+    border-color: var(--color-lime);
+    background-color: hsl(61, 70%, 95%);
+}
+
+.mortgage-button {
+    padding: 8px 20px;
+    background-color: var(--color-lime);
+    border-radius: 24px;
+    transition: all 0.3s ease-in;
+}
+
+.mortgage-button:hover {
+    background-color: hsla(61, 70%, 52%, 0.51);
+}
+
+.calculate-subtitle {
+    color: var(--color-slate-300);
+    font-size: 16px;
+}
+
+.ant-input-number {
+  width: 100%;
+}
+
+.ant-input-number-input {
+  font-weight: 600;
+  padding: 10px 12px;
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  .results-card {
+   border-radius: 0%;
+    width: 100%;
+  }
+
+  .page {
+    flex-direction: column;
+  }
+}
